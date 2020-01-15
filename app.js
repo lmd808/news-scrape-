@@ -59,9 +59,9 @@ app.use(function(req, res, next) {
 	res.locals.error = req.flash('error');
 	next();
 });
+//  data base routes
 
 // Routes
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
-
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

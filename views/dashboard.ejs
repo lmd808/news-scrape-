@@ -1,3 +1,49 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="mt-4">Dashboard</h1>
+      <p class="lead mb-3">Welcome <%= user.name %></p>
+      <a href="/users/logout" class="btn btn-secondary">Logout</a>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-5">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Articles: 
+        </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush" id="articles"></ul>
+          </div>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Notes: 
+        </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush" id="notes"></ul>
+          </div>
+        
+        </ul>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="./dash.js"></script>
+<!-- <script src="../public/dash.js"></script> -->
+
+
+
+
+
