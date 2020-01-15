@@ -15,16 +15,6 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 // Register
 
 router.post('/register', (req, res) => {
-	User.create({
-		name: req.body.email,
-		email: req.body.email,
-		password: req.body.password
-	})
-		.then((user) => {
-			req.flash('success_msg', 'You are now registered and can log in');
-			res.redirect('/users/login');
-		})
-		.catch((err) => console.log(err));
 	const { name, email, password, password2 } = req.body;
 	let errors = [];
 

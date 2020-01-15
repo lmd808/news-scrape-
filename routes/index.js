@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
-const app = express();
 var axios = require('axios');
 var cheerio = require('cheerio');
 
