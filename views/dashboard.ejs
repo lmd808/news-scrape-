@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="mt-4">Dashboard</h1>
+      <h1 class="mt-4">News Scraping!</h1>
       <p class="lead mb-3">Welcome <%= user.name %></p>
       <a href="/users/logout" class="btn btn-secondary">Logout</a>
       <hr>
@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <div class="col-5">
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 30rem;">
         <div class="card-header">
           Articles: 
         </div>
@@ -20,19 +20,30 @@
         </ul>
       </div>
     </div>
-    <div class="col-5">
-      <div class="card" style="width: 18rem;">
-        <div class="card-header">
-          Notes: 
-        </div>
-          <div class="card-body">
-            <ul class="list-group list-group-flush" id="notes"></ul>
+    <div class="col-5 offset-1">
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            Notes: 
           </div>
-        
-        </ul>
+            <div class="card-body">
+              <ul class="list-group list-group-flush" id="notes"></ul>
+            </div>
+          
+          </ul>
+        </div>
+        <br>
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            Comments: 
+          </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush" id="comments"></ul>
+            </div>
+          
+          </ul>
+        </div>
       </div>
-    
-    </div>
+     
   </div>
 </div>
 

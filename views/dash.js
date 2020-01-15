@@ -14,7 +14,7 @@ $.getJSON('/articles', function(data) {
 });
 
 // Whenever someone clicks a p tag
-$(document).on('click', 'li', function() {
+$('#articles').on('click', 'li', function() {
 	// Empty the notes from the note section
 	$('#notes').empty();
 	// Save the id from the p tag
@@ -28,7 +28,6 @@ $(document).on('click', 'li', function() {
 	})
 		// With that done, add the note information to the page
 		.then(function(data) {
-			console.log(data);
 			// The title of the article
 			$('#notes').append('<h2>' + data.title + '</h2>');
 			// An input to enter a new title
@@ -40,11 +39,31 @@ $(document).on('click', 'li', function() {
 
 			// If there's a note in the article
 			if (data.note) {
-				// Place the title of the note in the title input
-				$('#titleinput').val(data.note.title);
-				// Place the body of the note in the body textarea
-				$('#bodyinput').val(data.note.body);
+				var dataNote = data.note;
+				console.log('views' + dataNote);
+				//notes.empty
+				// notes.append
+				// comment component for all comments on that article
+				// the data would return as an array for loop through array to create comment for each
+
+				// link user id to note
+				// if user id === to id of the person who wrote the note then clicking on id will delete the comment
+				for (var i = 0; i < dataNote.length; i++) {
+					$('#comments').append(
+						`<li class="list-group-item comment" data-id= ${data.note[i]._id}>
+				${data.note[i].title}
+				<br />
+				${data.note[i].body} 
+				</li>`
+					);
+				}
 			}
+			// if (data.note) {
+			// 	// Place the title of the note in the title input
+			// 	//$('#titleinput').val(data.note.title);
+			// 	// Place the body of the note in the body textarea
+			// 	//$('#bodyinput').val(data.note.body);
+			// }
 		});
 });
 
@@ -52,7 +71,6 @@ $(document).on('click', 'li', function() {
 $(document).on('click', '#savenote', function() {
 	// Grab the id associated with the article from the submit button
 	var thisId = $(this).attr('data-id');
-
 	// Run a POST request to change the note, using what's entered in the inputs
 	$.ajax({
 		method: 'POST',
@@ -75,4 +93,19 @@ $(document).on('click', '#savenote', function() {
 	// Also, remove the values entered in the input and textarea for note entry
 	$('#titleinput').val('');
 	$('#bodyinput').val('');
+});
+
+$('#comments').on('click', 'li', function() {
+	// Empty the notes from the note section
+	var noteId = $(this).attr('data-id');
+	// Now make an ajax call for the Article
+	$.ajax({
+		method: 'DELETE',
+		url: '/note/' + noteId,
+		data: noteId
+	}).then(function(data) {
+		$(this).empty();
+
+		// The title of the article
+	});
 });
