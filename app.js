@@ -7,8 +7,6 @@ const session = require('express-session');
 const app = express();
 require('./config/passport')(passport);
 const logger = require('morgan');
-const axios = require('axios');
-const cheerio = require('cheerio');
 
 // Require all models
 // var db = require('./models');
