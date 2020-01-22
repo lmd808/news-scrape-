@@ -1,9 +1,6 @@
 # news-scrape-
 Scraping Video Pages for Updates 
 
-# scraped-news-network
-Web Scraping project that scrapes articles from Slate and allows users to leave comments on each article.
-
 ## Using the Project
 The homepage will display the articles
 
